@@ -10,18 +10,36 @@
             --accent-color: #d84315;
             --bg-color: #fafafa;
         }
-        body { font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: #333; line-height: 1.6; }
-        header { background: var(--main-color); color: #fff; padding: 3rem 1rem; text-align: center; }
+        body { font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; margin: 0; padding: 0; background-color: var(--bg-color); color: #333; line-height: 1.6; scroll-behavior: smooth; }
+        header { background: var(--main-color); color: #fff; padding: 3rem 1rem 2rem; text-align: center; }
         header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
         header p { margin-top: 10px; font-size: 1.1rem; opacity: 0.9; }
+        
+        /* ナビゲーションタブ */
+        nav { background: #2d1b15; text-align: center; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.95rem; display: inline-block; }
+        nav a:hover { color: var(--accent-color); }
+        
         .container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
-        h2 { color: var(--main-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-top: 2rem; }
+        h2 { color: var(--main-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-top: 2rem; padding-top: 1rem; }
+        
         .feature-box { background: #fff; border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 2rem; }
         .feature-title { font-weight: bold; color: var(--accent-color); font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .menu-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        
+        .menu-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2rem; }
         @media(min-width: 600px) { .menu-grid { grid-template-columns: 1fr 1fr; } }
         .menu-item { background: #fff; padding: 1rem; border-radius: 6px; border-left: 4px solid var(--main-color); }
         .menu-item h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
+        
+        /* 全メニュー用スタイル */
+        .menu-note { color: var(--accent-color); font-size: 0.9rem; text-align: right; margin-bottom: 1.5rem; font-weight: bold; }
+        .menu-category { margin-bottom: 2rem; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .menu-category-title { border-left: 5px solid var(--accent-color); padding-left: 10px; font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem; color: var(--main-color); }
+        .full-menu-list { list-style: none; padding: 0; margin: 0; }
+        .full-menu-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 0.6rem 0; font-size: 1rem; }
+        .full-menu-list li:last-child { border-bottom: none; }
+        .price { font-weight: bold; margin-left: 1rem; white-space: nowrap; }
+        
         .info-list { list-style: none; padding: 0; }
         .info-list li { margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
         .info-list strong { display: inline-block; width: 80px; }
@@ -35,27 +53,161 @@
     <p>こだわりの手料理と「神泡」ビールが楽しめる、桐生市仲町の隠れ家</p>
 </header>
 
+<nav>
+    <a href="#about">当店について</a>
+    <a href="#pickup">おすすめ</a>
+    <a href="#full-menu">お品書き</a>
+    <a href="#info">店舗情報</a>
+</nav>
+
 <div class="container">
-    <section class="feature-box">
+    <section id="about" class="feature-box">
         <div class="feature-title">当店について</div>
         <p>桐生駅から徒歩8分。アットホームな雰囲気の中で、店主こだわりの手料理と厳選されたお酒をゆっくりと味わえる居酒屋。「神泡超達人店」に認定された極上のザ・プレミアム・モルツとともに、特別なひとときをご提供する。</p>
     </section>
 
-    <section>
-        <h2>おすすめメニュー</h2>
+    <section id="pickup">
+        <h2>名物・おすすめ</h2>
         <div class="menu-grid">
             <div class="menu-item">
                 <h3>あじ豚の豚しゃぶ</h3>
-                <p>焼酎蔵のもろみで育てられた「あじ豚」を使用。上品で甘みのある脂と、トレーニング時にも嬉しい良質なタンパク質が特徴で、後を引く美味しさ。</p>
+                <p>焼酎蔵のもろみで育てられた宮崎県産「あじ豚」を使用。上品で甘みのある脂が特徴で、後を引く美味しさ。</p>
+            </div>
+            <div class="menu-item">
+                <h3>馬肉・赤鶏の刺身</h3>
+                <p>新鮮な馬肉赤身やレバー刺し、赤鶏のたたきなど、素材の良さをそのまま味わえる逸品。</p>
             </div>
             <div class="menu-item">
                 <h3>ザ・プレミアム・モルツ（神泡）</h3>
                 <p>桐生市内でも数少ない「神泡超達人店」認定。究極の状態で提供されるクリーミーな泡とビールのバランスは絶品。</p>
             </div>
             <div class="menu-item">
-                <h3>クラフトビール（ペールエール）</h3>
-                <p>店主が厳選したこだわりのクラフトビール。フルーティーな香りと深いコクが料理の味をさらに引き立てる。</p>
+                <h3>多彩な一品料理</h3>
+                <p>手作りの小鉢や炒め物、〆のご飯物・パスタまで、お酒のお供からお食事まで幅広く対応。</p>
             </div>
-            <div class="menu-item">
-                <h3>厳選日本酒・地元ワイン</h3>
-                <p>こだわりの料理の味わいに合わせて選ばれた日本酒や
+        </div>
+    </section>
+
+    <section id="full-menu">
+        <h2>お品書き</h2>
+        <p class="menu-note">＊材料の入荷状況により欠品することがあります</p>
+
+        <div class="menu-category">
+            <div class="menu-category-title">あじ豚料理(宮崎県産)</div>
+            <ul class="full-menu-list">
+                <li><span>しゃぶしゃぶ</span><span class="price">1200円</span></li>
+                <li><span>しゃぶしゃぶ もちスラ付き</span><span class="price">1400円</span></li>
+                <li><span>ウインナー3種盛り</span><span class="price">1200円</span></li>
+                <li><span>肩ロース陶板焼き</span><span class="price">1200円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title">やまと豚料理</div>
+            <ul class="full-menu-list">
+                <li><span>あぶり焼き</span><span class="price">700円</span></li>
+                <li><span>生姜焼き(期間限定)</span><span class="price">900円</span></li>
+                <li><span>あぶり焼き丼</span><span class="price">900円</span></li>
+                <li><span>あぶり焼き丼 サラダ・吸い物付き</span><span class="price">1200円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title">馬肉・だちょう・赤鶏・牛タン</div>
+            <ul class="full-menu-list">
+                <li><span>馬肉赤身</span><span class="price">1000円</span></li>
+                <li><span>たてがみ</span><span class="price">1200円</span></li>
+                <li><span>赤身・たてがみ盛り合わせ</span><span class="price">1200円</span></li>
+                <li><span>ふたえご</span><span class="price">1200円</span></li>
+                <li><span>馬レバー刺し</span><span class="price">1500円</span></li>
+                <li><span>かいのみ陶板焼き</span><span class="price">1500円</span></li>
+                <li><span>だちょう もも刺し</span><span class="price">1200円</span></li>
+                <li><span>赤鶏のたたき</span><span class="price">1000円</span></li>
+                <li><span>牛タンのあぶり焼き</span><span class="price">1500円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title">珍味・小鉢</div>
+            <ul class="full-menu-list">
+                <li><span>生ゆば</span><span class="price">500円</span></li>
+                <li><span>クリームチーズの胡麻わさび醤油和え</span><span class="price">700円</span></li>
+                <li><span>まぐろとアボカドのわさび醤油和え</span><span class="price">800円</span></li>
+                <li><span>あぶり明太子</span><span class="price">600円</span></li>
+                <li><span>カマンベールチーズとクラッカー</span><span class="price">600円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title">さらだ</div>
+            <ul class="full-menu-list">
+                <li><span>とり皮とレタスのパリシャリさらだ</span><span class="price">800円</span></li>
+                <li><span>カットトマト</span><span class="price">600円</span></li>
+                <li><span>赤鶏のたたきさらだ</span><span class="price">1200円</span></li>
+                <li><span>真鯛とトマトのカルパッチョ</span><span class="price">1200円</span></li>
+                <li><span>北海たこのさらだ</span><span class="price">1000円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title">焼き物・炒め物</div>
+            <ul class="full-menu-list">
+                <li><span>とりむね肉のあみ焼き</span><span class="price">700円</span></li>
+                <li><span>豚肉とキムチの炒め物</span><span class="price">800円</span></li>
+                <li><span>白将軍(柚子胡椒仕立ての麻婆豆腐)</span><span class="price">700円</span></li>
+                <li><span>ヤングコーンのバター醤油炒め</span><span class="price">700円</span></li>
+                <li><span>きくらげとにんにくの芽の炒め物</span><span class="price">700円</span></li>
+                <li><span>さばの開き</span><span class="price">800円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title">揚げ物・煮物</div>
+            <ul class="full-menu-list">
+                <li><span>ソースかつ</span><span class="price">700円</span></li>
+                <li><span>あげもち納豆</span><span class="price">700円</span></li>
+                <li><span>ヤングコーンのてんぷら</span><span class="price">700円</span></li>
+                <li><span>ねぎとん</span><span class="price">1000円</span></li>
+                <li><span>豆腐の揚げ出し</span><span class="price">700円</span></li>
+                <li><span>あぶり鶏もも肉の卵とじ</span><span class="price">900円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title">ご飯物・パスタ・その他</div>
+            <ul class="full-menu-list">
+                <li><span>ソースかつ丼</span><span class="price">900円</span></li>
+                <li><span>ソースかつ丼 ミニサラダ・吸い物付き</span><span class="price">1200円</span></li>
+                <li><span>やまと豚あぶり焼き丼</span><span class="price">900円</span></li>
+                <li><span>やまと豚あぶり焼き丼 ミニサラダ・吸い物付き</span><span class="price">1200円</span></li>
+                <li><span>煮込みハンバーグ定食</span><span class="price">800円</span></li>
+                <li><span>煮込みハンバーグ定食 吸い物付き</span><span class="price">1000円</span></li>
+                <li><span>おち。風 ナポリタン</span><span class="price">800円</span></li>
+                <li><span>塩昆布のパスタ</span><span class="price">800円</span></li>
+                <li><span>焼うどん</span><span class="price">800円</span></li>
+                <li><span>わさび のり巻き (一本)</span><span class="price">200円</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="info">
+        <h2>店舗情報</h2>
+        <div class="feature-box">
+            <ul class="info-list">
+                <li><strong>店舗名</strong> おち。（おち）</li>
+                <li><strong>所在地</strong> 〒376-0035 群馬県桐生市仲町2丁目8-1</li>
+                <li><strong>電話番号</strong> 0277-46-6642</li>
+                <li><strong>営業時間</strong> 19:00 - 翌01:00（L.O. 24:00）</li>
+                <li><strong>定休日</strong> 毎週月曜日</li>
+                <li><strong>アクセス</strong> JR桐生駅北口より徒歩8分 / 西桐生駅より徒歩10分</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+<footer>
+    &copy; 2026 おち。 All rights reserved.
+</footer>
+
+</body>
+</html>
