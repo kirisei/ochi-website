@@ -17,8 +17,16 @@
         
         /* ナビゲーションタブ */
         nav { background: #2d1b15; text-align: center; padding: 15px 0; position: sticky; top: 0; z-index: 100; }
-        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 0.95rem; display: inline-block; }
+        nav a { color: #fff; text-decoration: none; margin: 0 10px; font-weight: bold; font-size: 0.95rem; display: inline-block; vertical-align: middle; }
         nav a:hover { color: var(--accent-color); }
+        
+        /* 言語切り替えボタン */
+        .lang-btn { background: var(--accent-color); color: #fff; border: none; padding: 6px 12px; margin-left: 10px; cursor: pointer; border-radius: 4px; font-weight: bold; font-size: 0.9rem; vertical-align: middle; transition: background 0.3s; }
+        .lang-btn:hover { background: #bf360c; }
+
+        /* 言語表示の制御 */
+        :lang(ja) .lang-en { display: none !important; }
+        :lang(en) .lang-ja { display: none !important; }
         
         .container { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
         h2 { color: var(--main-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; margin-top: 2rem; padding-top: 1rem; }
@@ -31,15 +39,16 @@
         .menu-item { background: #fff; padding: 1rem; border-radius: 6px; border-left: 4px solid var(--main-color); }
         .menu-item h3 { margin: 0 0 5px 0; font-size: 1.1rem; }
         
-        /* 全メニュー用スタイル */
         .menu-note { color: var(--accent-color); font-size: 0.9rem; text-align: right; margin-bottom: 1.5rem; font-weight: bold; }
         .menu-category { margin-bottom: 2rem; background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .menu-category-title { border-left: 5px solid var(--accent-color); padding-left: 10px; font-weight: bold; font-size: 1.2rem; margin-bottom: 1rem; color: var(--main-color); }
         .full-menu-list { list-style: none; padding: 0; margin: 0; }
-        .full-menu-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 0.6rem 0; font-size: 1rem; }
+        .full-menu-list li { display: flex; justify-content: space-between; border-bottom: 1px dashed #ddd; padding: 0.6rem 0; font-size: 0.95rem; }
         .full-menu-list li:last-child { border-bottom: none; }
         .price { font-weight: bold; margin-left: 1rem; white-space: nowrap; }
         
+        .sub-category { margin-top: 1rem; font-weight: bold; color: #5d4037; font-size: 1.05rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
         .info-list { list-style: none; padding: 0; }
         .info-list li { margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
         .info-list strong { display: inline-block; width: 80px; }
@@ -50,164 +59,251 @@
 
 <header>
     <h1>おち。</h1>
-    <p>こだわりの手料理と「神泡」ビールが楽しめる、桐生市仲町の隠れ家</p>
+    <p>
+        <span class="lang-ja">こだわりの手料理と「神泡」ビールが楽しめる、桐生市仲町の隠れ家</span>
+        <span class="lang-en">A hidden gem in Nakamachi, Kiryu, offering homemade dishes and premium "Kami-Awa" beer</span>
+    </p>
 </header>
 
 <nav>
-    <a href="#about">当店について</a>
-    <a href="#pickup">おすすめ</a>
-    <a href="#full-menu">お品書き</a>
-    <a href="#info">店舗情報</a>
+    <a href="#about"><span class="lang-ja">当店について</span><span class="lang-en">About</span></a>
+    <a href="#pickup"><span class="lang-ja">おすすめ</span><span class="lang-en">Recommend</span></a>
+    <a href="#full-menu"><span class="lang-ja">料理</span><span class="lang-en">Food</span></a>
+    <a href="#drinks"><span class="lang-ja">飲み物</span><span class="lang-en">Drinks</span></a>
+    <a href="#info"><span class="lang-ja">店舗情報</span><span class="lang-en">Info</span></a>
+    <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLanguage()">English</button>
 </nav>
 
 <div class="container">
     <section id="about" class="feature-box">
-        <div class="feature-title">当店について</div>
-        <p>桐生駅から徒歩8分。アットホームな雰囲気の中で、店主こだわりの手料理と厳選されたお酒をゆっくりと味わえる居酒屋。「神泡超達人店」に認定された極上のザ・プレミアム・モルツとともに、特別なひとときをご提供する。</p>
+        <div class="feature-title">
+            <span class="lang-ja">当店について</span><span class="lang-en">About Us</span>
+        </div>
+        <p>
+            <span class="lang-ja">桐生駅から徒歩8分。アットホームな雰囲気の中で、店主こだわりの手料理と厳選されたお酒をゆっくりと味わえる居酒屋。「神泡超達人店」に認定された極上のザ・プレミアム・モルツとともに、特別なひとときをご提供する。</span>
+            <span class="lang-en">An 8-minute walk from Kiryu Station. Enjoy the owner's special homemade dishes and selected drinks in a cozy atmosphere. We offer a special time with the finest Premium Malts beer, officially certified as a "Kami-Awa (Premium Foam) Master Shop".</span>
+        </p>
     </section>
 
     <section id="pickup">
-        <h2>名物・おすすめ</h2>
+        <h2><span class="lang-ja">名物・おすすめ</span><span class="lang-en">Signature & Recommendations</span></h2>
         <div class="menu-grid">
             <div class="menu-item">
-                <h3>あじ豚の豚しゃぶ</h3>
-                <p>焼酎蔵のもろみで育てられた宮崎県産「あじ豚」を使用。上品で甘みのある脂が特徴で、後を引く美味しさ。</p>
+                <h3><span class="lang-ja">あじ豚の豚しゃぶ</span><span class="lang-en">Aji Pork Shabu-Shabu</span></h3>
+                <p>
+                    <span class="lang-ja">焼酎蔵のもろみで育てられた宮崎県産「あじ豚」を使用。上品で甘みのある脂が特徴で、身体づくりにも嬉しい良質なタンパク源。</span>
+                    <span class="lang-en">Made with "Aji Pork" from Miyazaki, raised on shochu mash. Features elegant, sweet fat and serves as a high-quality protein source.</span>
+                </p>
             </div>
             <div class="menu-item">
-                <h3>馬肉・赤鶏の刺身</h3>
-                <p>新鮮な馬肉赤身やレバー刺し、赤鶏のたたきなど、素材の良さをそのまま味わえる逸品。</p>
+                <h3><span class="lang-ja">馬肉・赤鶏の刺身</span><span class="lang-en">Horse & Red Chicken Sashimi</span></h3>
+                <p>
+                    <span class="lang-ja">新鮮な馬肉赤身やレバー刺し、赤鶏のたたきなど、素材の良さをそのまま味わえる逸品。</span>
+                    <span class="lang-en">Fresh lean horse meat, liver sashimi, and seared red chicken. Taste the natural quality of the ingredients.</span>
+                </p>
             </div>
             <div class="menu-item">
-                <h3>ザ・プレミアム・モルツ（神泡）</h3>
-                <p>桐生市内でも数少ない「神泡超達人店」認定。究極の状態で提供されるクリーミーな泡とビールのバランスは絶品。</p>
+                <h3><span class="lang-ja">ザ・プレミアム・モルツ（神泡）</span><span class="lang-en">The Premium Malts (Kami-Awa)</span></h3>
+                <p>
+                    <span class="lang-ja">桐生市内でも数少ない「神泡超達人店」認定。究極の状態で提供されるクリーミーな泡とビールのバランスは絶品。</span>
+                    <span class="lang-en">One of the few certified "Kami-Awa Master" shops in Kiryu. The balance of creamy foam and beer served in its ultimate state is exquisite.</span>
+                </p>
             </div>
             <div class="menu-item">
-                <h3>多彩な一品料理</h3>
-                <p>手作りの小鉢や炒め物、〆のご飯物・パスタまで、お酒のお供からお食事まで幅広く対応。</p>
+                <h3><span class="lang-ja">こだわりのクラフトビール・国産ウイスキー</span><span class="lang-en">Craft Beer & Japanese Whisky</span></h3>
+                <p>
+                    <span class="lang-ja">平和クラフトの各種エールや、希少なイチローズモルトなど、お酒好きも唸る充実のラインナップ。</span>
+                    <span class="lang-en">An extensive lineup that will impress any alcohol lover, including Heiwa Craft ales and rare Ichiro's Malt whisky.</span>
+                </p>
             </div>
         </div>
     </section>
 
     <section id="full-menu">
-        <h2>お品書き</h2>
-        <p class="menu-note">＊材料の入荷状況により欠品することがあります</p>
+        <h2><span class="lang-ja">料理</span><span class="lang-en">Food Menu</span></h2>
+        <p class="menu-note">
+            <span class="lang-ja">＊材料の入荷状況により欠品することがあります</span>
+            <span class="lang-en">*Items may be out of stock depending on ingredient availability.</span>
+        </p>
 
         <div class="menu-category">
-            <div class="menu-category-title">あじ豚料理(宮崎県産)</div>
+            <div class="menu-category-title"><span class="lang-ja">あじ豚料理(宮崎県産)</span><span class="lang-en">Aji Pork Dishes (Miyazaki)</span></div>
             <ul class="full-menu-list">
-                <li><span>しゃぶしゃぶ</span><span class="price">1200円</span></li>
-                <li><span>しゃぶしゃぶ もちスラ付き</span><span class="price">1400円</span></li>
-                <li><span>ウインナー3種盛り</span><span class="price">1200円</span></li>
-                <li><span>肩ロース陶板焼き</span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">しゃぶしゃぶ</span><span class="lang-en">Shabu-shabu (Pork Hot Pot)</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">しゃぶしゃぶ もちスラ付き</span><span class="lang-en">Shabu-shabu with Sliced Mochi</span></span><span class="price">1400円</span></li>
+                <li><span><span class="lang-ja">ウインナー3種盛り</span><span class="lang-en">Assorted Sausages (3 types)</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">肩ロース陶板焼き</span><span class="lang-en">Pork Shoulder Roast on Ceramic Plate</span></span><span class="price">1200円</span></li>
             </ul>
         </div>
 
         <div class="menu-category">
-            <div class="menu-category-title">やまと豚料理</div>
+            <div class="menu-category-title"><span class="lang-ja">やまと豚料理</span><span class="lang-en">Yamato Pork Dishes</span></div>
             <ul class="full-menu-list">
-                <li><span>あぶり焼き</span><span class="price">700円</span></li>
-                <li><span>生姜焼き(期間限定)</span><span class="price">900円</span></li>
-                <li><span>あぶり焼き丼</span><span class="price">900円</span></li>
-                <li><span>あぶり焼き丼 サラダ・吸い物付き</span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">あぶり焼き</span><span class="lang-en">Seared Pork</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">生姜焼き(期間限定)</span><span class="lang-en">Ginger Pork (Limited Time)</span></span><span class="price">900円</span></li>
+                <li><span><span class="lang-ja">あぶり焼き丼</span><span class="lang-en">Seared Pork Rice Bowl</span></span><span class="price">900円</span></li>
+                <li><span><span class="lang-ja">あぶり焼き丼 サラダ・吸い物付き</span><span class="lang-en">Seared Pork Rice Bowl with Salad & Soup</span></span><span class="price">1200円</span></li>
             </ul>
         </div>
 
         <div class="menu-category">
-            <div class="menu-category-title">馬肉・だちょう・赤鶏・牛タン</div>
+            <div class="menu-category-title"><span class="lang-ja">馬肉・だちょう・赤鶏・牛タン</span><span class="lang-en">Horse, Ostrich, Red Chicken & Beef Tongue</span></div>
             <ul class="full-menu-list">
-                <li><span>馬肉赤身</span><span class="price">1000円</span></li>
-                <li><span>たてがみ</span><span class="price">1200円</span></li>
-                <li><span>赤身・たてがみ盛り合わせ</span><span class="price">1200円</span></li>
-                <li><span>ふたえご</span><span class="price">1200円</span></li>
-                <li><span>馬レバー刺し</span><span class="price">1500円</span></li>
-                <li><span>かいのみ陶板焼き</span><span class="price">1500円</span></li>
-                <li><span>だちょう もも刺し</span><span class="price">1200円</span></li>
-                <li><span>赤鶏のたたき</span><span class="price">1000円</span></li>
-                <li><span>牛タンのあぶり焼き</span><span class="price">1500円</span></li>
+                <li><span><span class="lang-ja">馬肉赤身</span><span class="lang-en">Lean Horse Meat Sashimi</span></span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">たてがみ</span><span class="lang-en">Horse Mane (Tategami) Sashimi</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">赤身・たてがみ盛り合わせ</span><span class="lang-en">Assorted Horse Meat & Mane</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">ふたえご</span><span class="lang-en">Horse Belly (Futaego) Sashimi</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">馬レバー刺し</span><span class="lang-en">Horse Liver Sashimi</span></span><span class="price">1500円</span></li>
+                <li><span><span class="lang-ja">かいのみ陶板焼き</span><span class="lang-en">Flap Meat on Ceramic Plate</span></span><span class="price">1500円</span></li>
+                <li><span><span class="lang-ja">だちょう もも刺し</span><span class="lang-en">Ostrich Thigh Sashimi</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">赤鶏のたたき</span><span class="lang-en">Seared Red Chicken</span></span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">牛タンのあぶり焼き</span><span class="lang-en">Seared Beef Tongue</span></span><span class="price">1500円</span></li>
             </ul>
         </div>
 
         <div class="menu-category">
-            <div class="menu-category-title">珍味・小鉢</div>
+            <div class="menu-category-title"><span class="lang-ja">珍味・小鉢・さらだ</span><span class="lang-en">Delicacies, Small Dishes & Salads</span></div>
             <ul class="full-menu-list">
-                <li><span>生ゆば</span><span class="price">500円</span></li>
-                <li><span>クリームチーズの胡麻わさび醤油和え</span><span class="price">700円</span></li>
-                <li><span>まぐろとアボカドのわさび醤油和え</span><span class="price">800円</span></li>
-                <li><span>あぶり明太子</span><span class="price">600円</span></li>
-                <li><span>カマンベールチーズとクラッカー</span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">生ゆば</span><span class="lang-en">Fresh Tofu Skin (Yuba)</span></span><span class="price">500円</span></li>
+                <li><span><span class="lang-ja">クリームチーズの胡麻わさび醤油和え</span><span class="lang-en">Cream Cheese with Sesame Wasabi Soy Sauce</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">まぐろとアボカドのわさび醤油和え</span><span class="lang-en">Tuna & Avocado with Wasabi Soy Sauce</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">あぶり明太子</span><span class="lang-en">Seared Spicy Pollock Roe</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">カマンベールチーズとクラッカー</span><span class="lang-en">Camembert Cheese & Crackers</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">とり皮とレタスのパリシャリさらだ</span><span class="lang-en">Crispy Chicken Skin & Lettuce Salad</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">赤鶏のたたきさらだ</span><span class="lang-en">Seared Red Chicken Salad</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">真鯛とトマトのカルパッチョ</span><span class="lang-en">Sea Bream & Tomato Carpaccio</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">北海たこのさらだ</span><span class="lang-en">Hokkaido Octopus Salad</span></span><span class="price">1000円</span></li>
             </ul>
         </div>
 
         <div class="menu-category">
-            <div class="menu-category-title">さらだ</div>
+            <div class="menu-category-title"><span class="lang-ja">焼き物・炒め物・揚げ物</span><span class="lang-en">Grilled, Stir-fried & Deep-fried</span></div>
             <ul class="full-menu-list">
-                <li><span>とり皮とレタスのパリシャリさらだ</span><span class="price">800円</span></li>
-                <li><span>カットトマト</span><span class="price">600円</span></li>
-                <li><span>赤鶏のたたきさらだ</span><span class="price">1200円</span></li>
-                <li><span>真鯛とトマトのカルパッチョ</span><span class="price">1200円</span></li>
-                <li><span>北海たこのさらだ</span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">とりむね肉のあみ焼き</span><span class="lang-en">Grilled Chicken Breast</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">白将軍(柚子胡椒仕立ての麻婆豆腐)</span><span class="lang-en">White Shogun (Yuzu Pepper Mapo Tofu)</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">豚肉とキムチの炒め物</span><span class="lang-en">Stir-fried Pork & Kimchi</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">さばの開き</span><span class="lang-en">Grilled Mackerel</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">ソースかつ</span><span class="lang-en">Sauce Cutlet</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">あげもち納豆</span><span class="lang-en">Deep-fried Mochi with Natto</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">ねぎとん</span><span class="lang-en">Negi-ton (Pork with Green Onions)</span></span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">あぶり鶏もも肉の卵とじ</span><span class="lang-en">Seared Chicken Thigh Bound with Egg</span></span><span class="price">900円</span></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="drinks">
+        <h2><span class="lang-ja">飲み物</span><span class="lang-en">Drinks Menu</span></h2>
+        
+        <div class="menu-category">
+            <div class="menu-category-title"><span class="lang-ja">麦酒 (ビール)</span><span class="lang-en">Beer</span></div>
+            <ul class="full-menu-list">
+                <li><span><span class="lang-ja">生ビール サントリープレミアムモルツ マスターズドリーム</span><span class="lang-en">Draft Beer (Suntory Premium Malts Master's Dream)</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">瓶ビール アサヒスーパードライ(小瓶)</span><span class="lang-en">Bottled Beer (Asahi Super Dry - Small)</span></span><span class="price">500円</span></li>
+                <li><span><span class="lang-ja">ノンアルコールビール DRY ZERO</span><span class="lang-en">Non-Alcoholic Beer (DRY ZERO)</span></span><span class="price">500円</span></li>
+            </ul>
+
+            <div class="sub-category"><span class="lang-ja">クラフトビール 平和クラフト</span><span class="lang-en">Craft Beer (Heiwa Craft)</span></div>
+            <ul class="full-menu-list">
+                <li><span><span class="lang-ja">ホワイトエール</span><span class="lang-en">White Ale</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">ペールエール</span><span class="lang-en">Pale Ale</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">I・P・A</span><span class="lang-en">I.P.A</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">ポーター(黒ビール)</span><span class="lang-en">Porter (Dark Beer)</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">スタウト(黒ビール)</span><span class="lang-en">Stout (Dark Beer)</span></span><span class="price">800円</span></li>
             </ul>
         </div>
 
         <div class="menu-category">
-            <div class="menu-category-title">焼き物・炒め物</div>
+            <div class="menu-category-title"><span class="lang-ja">国産ウイスキー</span><span class="lang-en">Japanese Whisky</span></div>
+            <p style="font-size: 0.85rem; color: #666; margin-top: 0;"><span class="lang-ja">※イチローズモルトは希少入荷の為、欠品する事が多々あります。</span><span class="lang-en">*Ichiro's Malt may be out of stock due to rare availability.</span></p>
             <ul class="full-menu-list">
-                <li><span>とりむね肉のあみ焼き</span><span class="price">700円</span></li>
-                <li><span>豚肉とキムチの炒め物</span><span class="price">800円</span></li>
-                <li><span>白将軍(柚子胡椒仕立ての麻婆豆腐)</span><span class="price">700円</span></li>
-                <li><span>ヤングコーンのバター醤油炒め</span><span class="price">700円</span></li>
-                <li><span>きくらげとにんにくの芽の炒め物</span><span class="price">700円</span></li>
-                <li><span>さばの開き</span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">イチローズモルト ホワイトラベル</span><span class="lang-en">Ichiro's Malt White Label</span></span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">イチローズモルト MWR(ミズナラウッドリザーブ)</span><span class="lang-en">Ichiro's Malt MWR</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">イチローズモルト WWR(ワインウッドリザーブ)</span><span class="lang-en">Ichiro's Malt WWR</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">イチローズモルト ダブルディスティラリーズ</span><span class="lang-en">Ichiro's Malt Double Distilleries</span></span><span class="price">1200円</span></li>
+                <li><span><span class="lang-ja">イチローズモルト Classical Edition</span><span class="lang-en">Ichiro's Malt Classical Edition</span></span><span class="price">1400円</span></li>
+                <li><span><span class="lang-ja">イチローズモルト LIMITED EDITION</span><span class="lang-en">Ichiro's Malt LIMITED EDITION</span></span><span class="price">1600円</span></li>
+                <li><span><span class="lang-ja">サントリー 角</span><span class="lang-en">Suntory Kaku</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">サントリー オールド</span><span class="lang-en">Suntory Old</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">ニッカ スーパーニッカ</span><span class="lang-en">Super Nikka</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">笹の川酒造 YAMAZAKURA</span><span class="lang-en">YAMAZAKURA</span></span><span class="price">800円</span></li>
+                <li><span><span class="lang-ja">松井 ピーテッド</span><span class="lang-en">Matsui Peated</span></span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">嘉之助 KANOSUKE SINGLE MALT</span><span class="lang-en">KANOSUKE SINGLE MALT</span></span><span class="price">1200円</span></li>
             </ul>
         </div>
 
         <div class="menu-category">
-            <div class="menu-category-title">揚げ物・煮物</div>
+            <div class="menu-category-title"><span class="lang-ja">国産ジン</span><span class="lang-en">Japanese Gin</span></div>
             <ul class="full-menu-list">
-                <li><span>ソースかつ</span><span class="price">700円</span></li>
-                <li><span>あげもち納豆</span><span class="price">700円</span></li>
-                <li><span>ヤングコーンのてんぷら</span><span class="price">700円</span></li>
-                <li><span>ねぎとん</span><span class="price">1000円</span></li>
-                <li><span>豆腐の揚げ出し</span><span class="price">700円</span></li>
-                <li><span>あぶり鶏もも肉の卵とじ</span><span class="price">900円</span></li>
+                <li><span><span class="lang-ja">サントリー 翠 sui</span><span class="lang-en">Suntory Sui</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">OSUZU GIN オリジナル</span><span class="lang-en">OSUZU GIN Original</span></span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">OSUZU GIN Kyoto / Kumquat / Cacao</span><span class="lang-en">OSUZU GIN Kyoto / Kumquat / Cacao</span></span><span class="price">1000円</span></li>
+                <li><span><span class="lang-ja">西吉田酒造 吉田 荒濾過</span><span class="lang-en">Yoshida Ara-roka</span></span><span class="price">1000円</span></li>
             </ul>
         </div>
 
         <div class="menu-category">
-            <div class="menu-category-title">ご飯物・パスタ・その他</div>
+            <div class="menu-category-title"><span class="lang-ja">本格焼酎(芋)</span><span class="lang-en">Authentic Shochu (Sweet Potato)</span></div>
             <ul class="full-menu-list">
-                <li><span>ソースかつ丼</span><span class="price">900円</span></li>
-                <li><span>ソースかつ丼 ミニサラダ・吸い物付き</span><span class="price">1200円</span></li>
-                <li><span>やまと豚あぶり焼き丼</span><span class="price">900円</span></li>
-                <li><span>やまと豚あぶり焼き丼 ミニサラダ・吸い物付き</span><span class="price">1200円</span></li>
-                <li><span>煮込みハンバーグ定食</span><span class="price">800円</span></li>
-                <li><span>煮込みハンバーグ定食 吸い物付き</span><span class="price">1000円</span></li>
-                <li><span>おち。風 ナポリタン</span><span class="price">800円</span></li>
-                <li><span>塩昆布のパスタ</span><span class="price">800円</span></li>
-                <li><span>焼うどん</span><span class="price">800円</span></li>
-                <li><span>わさび のり巻き (一本)</span><span class="price">200円</span></li>
+                <li><span><span class="lang-ja">大海酒造 海 / くじら</span><span class="lang-en">Umi / Kujira</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">海からの贈りもの 2019〜2024(限定)</span><span class="lang-en">Gift from the Sea (Limited)</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">黒木本店 㐂六 / たちばな</span><span class="lang-en">Kiroku / Tachibana</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">国分酒造 Flamingo Orange / Cool Mint Green</span><span class="lang-en">Flamingo Orange / Cool Mint Green</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">国分酒造 安田 いも麹 芋</span><span class="lang-en">Yasuda</span></span><span class="price">700円</span></li>
+                <li><span><span class="lang-ja">小正醸造 蔵の師魂 / ひめあやか</span><span class="lang-en">Kura no Shikon / Himeayaka</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">西酒造 富乃宝山</span><span class="lang-en">Tominohouzan</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">西酒造 HOUZAN MOJITO(モヒート)</span><span class="lang-en">HOUZAN MOJITO</span></span><span class="price">700円</span></li>
+            </ul>
+            <div class="sub-category"><span class="lang-ja">本格焼酎ハイボール</span><span class="lang-en">Shochu Highball</span></div>
+            <ul class="full-menu-list">
+                <li><span><span class="lang-ja">白天・富乃・吉兆</span><span class="lang-en">Hakuten / Tomino / Kiccho</span></span><span class="price">600円</span></li>
+                <li><span><span class="lang-ja">蒸撰シリーズ</span><span class="lang-en">Jousen Series</span></span><span class="price">700円</span></li>
+            </ul>
+        </div>
+
+        <div class="menu-category">
+            <div class="menu-category-title"><span class="lang-ja">ソフトドリンク・その他</span><span class="lang-en">Soft Drinks & Fruit Syrups</span></div>
+            <p style="font-size: 0.85rem; color: #666; margin-top: 0;"><span class="lang-ja">※フルーツシロップはソーダ、水、お湯、焼酎で割って楽しめます。</span><span class="lang-en">*Fruit syrups can be mixed with soda, water, hot water, or Shochu.</span></p>
+            <ul class="full-menu-list">
+                <li><span><span class="lang-ja">果肉たっぷりフルーツシロップ (レモン/もも/イチゴ 他)</span><span class="lang-en">Fruit Syrup (Lemon/Peach/Strawberry etc.)</span></span><span class="price">各600円</span></li>
+                <li><span><span class="lang-ja">ソフトドリンク各種</span><span class="lang-en">Various Soft Drinks</span></span><span class="price">各600円</span></li>
             </ul>
         </div>
     </section>
 
     <section id="info">
-        <h2>店舗情報</h2>
+        <h2><span class="lang-ja">店舗情報</span><span class="lang-en">Store Information</span></h2>
         <div class="feature-box">
             <ul class="info-list">
-                <li><strong>店舗名</strong> おち。（おち）</li>
-                <li><strong>所在地</strong> 〒376-0035 群馬県桐生市仲町2丁目8-1</li>
-                <li><strong>電話番号</strong> 0277-46-6642</li>
-                <li><strong>営業時間</strong> 19:00 - 翌01:00（L.O. 24:00）</li>
-                <li><strong>定休日</strong> 毎週月曜日</li>
-                <li><strong>アクセス</strong> JR桐生駅北口より徒歩8分 / 西桐生駅より徒歩10分</li>
+                <li><strong><span class="lang-ja">店舗名</span><span class="lang-en">Name</span></strong> <span class="lang-ja">おち。（おち）</span><span class="lang-en">Ochi.</span></li>
+                <li><strong><span class="lang-ja">所在地</span><span class="lang-en">Address</span></strong> <span class="lang-ja">〒376-0035 群馬県桐生市仲町2丁目8-1</span><span class="lang-en">2-8-1 Nakamachi, Kiryu, Gunma</span></li>
+                <li><strong><span class="lang-ja">電話番号</span><span class="lang-en">Phone</span></strong> 0277-46-6642</li>
+                <li><strong><span class="lang-ja">営業時間</span><span class="lang-en">Hours</span></strong> <span class="lang-ja">19:00 - 翌01:00（L.O. 24:00）</span><span class="lang-en">19:00 - 01:00 (L.O. 24:00)</span></li>
+                <li><strong><span class="lang-ja">定休日</span><span class="lang-en">Closed</span></strong> <span class="lang-ja">毎週月曜日</span><span class="lang-en">Mondays</span></li>
             </ul>
         </div>
     </section>
 </div>
 
 <footer>
-    &copy; 2026 おち。 All rights reserved.
+    &copy; 2026 <span class="lang-ja">おち。</span><span class="lang-en">Ochi.</span> All rights reserved.
 </footer>
+
+<script>
+    function toggleLanguage() {
+        const htmlElement = document.documentElement;
+        const toggleBtn = document.getElementById('lang-toggle-btn');
+        
+        if (htmlElement.lang === 'ja') {
+            htmlElement.lang = 'en';
+            toggleBtn.textContent = '日本語';
+            document.title = 'Ochi. | Izakaya in Kiryu, Gunma';
+        } else {
+            htmlElement.lang = 'ja';
+            toggleBtn.textContent = 'English';
+            document.title = 'おち。 | 群馬県桐生市の居酒屋';
+        }
+    }
+</script>
 
 </body>
 </html>
